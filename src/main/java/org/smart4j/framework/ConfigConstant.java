@@ -1,0 +1,27 @@
+package org.smart4j.framework;
+
+/**
+ * 提供相关配置项常量
+ *
+ * @author yacongliu
+ * @since 1.0.0
+ */
+public interface ConfigConstant {
+    String CONFIG_FILE="smart.properties";
+
+    /*DataBase JDBC START*/
+    String JDBC_DRIVER="smart.framework.jdbc.driver";
+    String JDBC_URL="smart.framework.jdbc.url";
+    String JDBC_USERNAME="smart.framework.jdbc.username";
+    String JDBC_PASSWORD="smart.framework.jdbc.password";
+    /*DataBase JDBC END*/
+
+    /*APP START*/
+    String APP_BASE_PACKAGE="smart.framework.app.base_package";//应用基础包
+    String APP_JSP_PATH="smart.framework.app.jsp_path";//jsp 路径
+    String APP_ASSET_PATH="smart.framework.app.asset_path"; //静态资源路径
+    /*APP END*/
+
+
+
+}
