@@ -7,7 +7,7 @@ import org.smart4j.framework.utils.PropsUtil;
 import java.util.Properties;
 
 /**
- * 属性文件助手类
+ * 属性文件助手类  用于获取属性文件中的信息
  * <p>
  * Created by yacongliu on 2017/6/16.
  */
