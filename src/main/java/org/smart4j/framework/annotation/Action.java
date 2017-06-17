@@ -6,16 +6,21 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 控制器注解
+ * Action 方法注解
  *
  * @author yacongliu on 2017/6/17.
  * @since v1.0.0
  */
-@Target(ElementType.TYPE)
+@Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Controller {
+public @interface Action {
     /**
-     * 1. ElementType.TYPE: 作用目标是接口、类、枚举、注解
-     * 2. RetentionPolicy.RUNTIME：注解会在class字节码文件中存在，在运行时可以通过反射获取到
+     *  @Action 注解作用于方法，并保留在运行时环境中
      */
+    /**
+     * 请求类型与路径
+     * @return
+     */
+    String value();
+
 }

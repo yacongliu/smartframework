@@ -20,7 +20,7 @@ import java.util.jar.JarFile;
  * @author yacongliu on 2017/6/17.
  * @since v1.0.0
  */
-public class ClassUtil {
+public final class ClassUtil {
     private final static Logger LOGGER = LoggerFactory.getLogger(ClassUtil.class);
 
     /**
