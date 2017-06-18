@@ -25,3 +25,7 @@ annotation包中的注解释义：<br>
 .@Action: 控制器类方法注解<br>
 .@Service: 服务类注解<br>
 .@Inject: 依赖注入注解，在控制器类中将服务类依赖注入进来<br>
+# <h5> ClassHelper 类操作助手类 <br>
+    1. 由于在smart.properties 配置文件中制定了应用的基础包名，通过ClassUtil加载的类都需要基于该基础包名.<br>
+    2. 所以有必要提供一个类操作助手类，让它分别获取应用包名下的所有类，所有Controller类，Service类.<br>
+    3. 此外，我们可以将带有@Controller @Service 注解的类所产生的对象，让Smart框架进行管理Bean.<br>
