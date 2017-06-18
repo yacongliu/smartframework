@@ -26,21 +26,21 @@ annotation包中的注解释义：<br>
 .@Service: 服务类注解<br>
 .@Inject: 依赖注入注解，在控制器类中将服务类依赖注入进来<br>
 # <h4> ClassHelper 类操作助手类 <br>
-    1. 由于在smart.properties 配置文件中制定了应用的基础包名，通过ClassUtil加载的类都需要基于该基础包名.<br>
-    2. 所以有必要提供一个类操作助手类，让它分别获取应用包名下的所有类，所有Controller类，Service类.<br>
-    3. 此外，我们可以将带有@Controller @Service 注解的类所产生的对象，让Smart框架进行管理Bean.<br>
+    1. 由于在smart.properties 配置文件中制定了应用的基础包名，通过ClassUtil加载的类都需要基于该基础包名.
+    2. 所以有必要提供一个类操作助手类，让它分别获取应用包名下的所有类，所有Controller类，Service类.
+    3. 此外，我们可以将带有@Controller @Service 注解的类所产生的对象，让Smart框架进行管理Bean.
 # <h4> ReflectionUtil 反射工具类 <br>
-    1. 使用ClassHelper 类可以获取所加载的类，但无法通过类来实例化对象<br>
-    2. 因此，需要提供一个反射工具类，封装Java反射API，对外提供更好的工具方法<br>
+    1. 使用ClassHelper 类可以获取所加载的类，但无法通过类来实例化对象
+    2. 因此，需要提供一个反射工具类，封装Java反射API，对外提供更好的工具方法
 # <h4> BeanHelper Bean助手类 <br>
-    1. BeanHelper 相当于一个‘Bean容器’.<br>
-    2. Bean Map 中存放了Bean类与Bean 实例的映射关系，我们只需要通过getBean方法，传入一个Bean类，就能获取到Bean实例.<br>
+    1. BeanHelper 相当于一个‘Bean容器’.
+    2. Bean Map 中存放了Bean类与Bean 实例的映射关系，我们只需要通过getBean方法，传入一个Bean类，就能获取到Bean实例.
 # <h4> IocHelper DI(依赖注入)助手类 <br>
-    1. 我们在Controller中定义Service成员变量，然后再Controller的Action方法中调用Service的成员变量，使用@Inject注入Service实例.<br>
-    2. 不是通过开发者 new 的方式来实例化，而是通过框架本身来进行实例化，这种实例化过程被称为IOC(控制反转)，控制不是开发者来决定，而是反传给了框架.<br>
-    3. 一般地，也将控制反转成为DI（依赖注入），理解为将某个类需要依赖的成员注入到这个类中<br>
+    1. 我们在Controller中定义Service成员变量，然后再Controller的Action方法中调用Service的成员变量，使用@Inject注入Service实例.
+    2. 不是通过开发者 new 的方式来实例化，而是通过框架本身来进行实例化，这种实例化过程被称为IOC(控制反转)，控制不是开发者来决定，而是反传给了框架.
+    3. 一般地，也将控制反转成为DI（依赖注入），理解为将某个类需要依赖的成员注入到这个类中.
         <br>
-#<h5> 如何实现依赖注入呢？
+#<h5> 如何实现依赖注入呢？<br>
         1. 通过BeanHelper 获取所有的Bean Map (是一个Map(Class<?>,Object)类与实例对象的映射关系).
         2. 遍历Bean Map 分别取出Bean类与Bean 实例，进而通过反射获取类中的成员变量.
         3. 继续遍历这些成员变量，在循环中判断当前成员变量是否带有@Inject注解，若带有该注解，则从Bean Map 中根据Bean 类获取Bean 实例.
