@@ -39,7 +39,6 @@ annotation包中的注解释义：<br>
     1. 我们在Controller中定义Service成员变量，然后再Controller的Action方法中调用Service的成员变量，使用@Inject注入Service实例.
     2. 不是通过开发者 new 的方式来实例化，而是通过框架本身来进行实例化，这种实例化过程被称为IOC(控制反转)，控制不是开发者来决定，而是反传给了框架.
     3. 一般地，也将控制反转成为DI（依赖注入），理解为将某个类需要依赖的成员注入到这个类中.
-        <br>
 #<h5> 如何实现依赖注入呢？<br>
         1. 通过BeanHelper 获取所有的Bean Map (是一个Map(Class<?>,Object)类与实例对象的映射关系).
         2. 遍历Bean Map 分别取出Bean类与Bean 实例，进而通过反射获取类中的成员变量.
@@ -54,6 +53,6 @@ annotation包中的注解释义：<br>
 2. 遍历Controller类 从带有@Action的方法的注解中提取URL，最后初始化Request与Handler之间的映射关系.
 
 #<h3> 初始化框架<br>
-<strong>我们已经创建了ClassHelper、BeanHelper、IocHelper、ControllerHelp， 这四个Helper类需要通过一个入口程序来加载他们，实际上就是加载他们的静态代码块！<br>
+<strong>我们已经创建了ClassHelper、BeanHelper、IocHelper、ControllerHelp， 这四个Helper类需要通过一个入口程序来加载他们，实际上就是加载他们的静态代码块！<br></strong>
 #<h4> HelperLoader 加载Helper助手类<br>
 使用HelperLoader中的init()加载Helper类。实际上，当我们第一次访问类时，就会记载static代码块，这里只是为了让加载更为集中，所以才构建了HelperLoader！<br>
