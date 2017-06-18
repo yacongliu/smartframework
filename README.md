@@ -29,3 +29,10 @@ annotation包中的注解释义：<br>
     1. 由于在smart.properties 配置文件中制定了应用的基础包名，通过ClassUtil加载的类都需要基于该基础包名.<br>
     2. 所以有必要提供一个类操作助手类，让它分别获取应用包名下的所有类，所有Controller类，Service类.<br>
     3. 此外，我们可以将带有@Controller @Service 注解的类所产生的对象，让Smart框架进行管理Bean.<br>
+# <h5> ReflectionUtil 反射工具类 <br>
+    1. 使用ClassHelper 类可以获取所加载的类，但无法通过类来实例化对象<br>
+    2. 因此，需要提供一个反射工具类，封装Java反射API，对外提供更好的工具方法<br>
+# <h5> BeanHelper Bean助手类 <br>
+    1. BeanHelper 相当于一个‘Bean容器’.<br>
+    2. Bean Map 中存放了Bean类与Bean 实例的映射关系，我们只需要通过getBean方法，传入一个Bean类，就能获取到Bean实例.<br>
+#

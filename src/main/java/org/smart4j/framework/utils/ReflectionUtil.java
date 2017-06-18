@@ -17,7 +17,7 @@ public final class ReflectionUtil {
      * 1. 使用ClassHelper 类可以获取所加载的类，但无法通过类来实例化对象
      * 2. 因此，需要提供一个反射工具类，封装Java反射API，对外提供更好的工具方法
      */
-    private final static Logger LOGGER = LoggerFactory.getLogger(ReflectionUtil.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ReflectionUtil.class);
 
     /**
      * 创建实例对象
