@@ -62,3 +62,6 @@ annotation包中的注解释义：<br>
 2. 从HttpServletRequest对象中获取请求方法和请求路径，通过ControllerHelper#getHandler方法获取Handler对象。<br>
 3. 当拿到Handler对象以后，我们可以方便的获取Controller的类，进而通过BeanHelper.getBean方法获取Controller的实例对象。<br>
 4. 从HttpServletRequest对象中获取所有的请求参数，并将其初始化到一个名为Param的参数对象中。<br>
+5. 从Handler对象中获取Action方法的返回值:<br>
+    1. 若返回值是View类型的视图对象，则返回jsp页面.<br>
+    2. 若返回值是Data类型的视图对象，则返回Json数据.<br>
