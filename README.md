@@ -22,7 +22,7 @@ annotation包中的注解释义：<br>
 <br>
 # <h3> Smart-Framework 框架注解方式
 .@Controller : 控制器 <br>
-.@Action: 控制器类方法注解<br>
+.@Action: 控制器类方法注解 eg:@Action("get:/customer_create) @Action("post:/customer_create)<br>
 .@Service: 服务类注解<br>
 .@Inject: 依赖注入注解，在控制器类中将服务类依赖注入进来<br>
 # <h4> ClassHelper 类操作助手类 <br>
@@ -57,3 +57,8 @@ annotation包中的注解释义：<br>
 我们已经创建了ClassHelper、BeanHelper、IocHelper、ControllerHelp， 这四个Helper类需要通过一个入口程序来加载他们，实际上就是加载他们的静态代码块！<br>
 # <h4> HelperLoader 加载Helper助手类<br>
 使用HelperLoader中的init()加载Helper类。实际上，当我们第一次访问类时，就会记载static代码块，这里只是为了让加载更为集中，所以才构建了HelperLoader！<br>
+# <h3> 请求转发器<br>
+1. 现在需要编写一个Servlet,让它来处理所有的请求。<br>
+2. 从HttpServletRequest对象中获取请求方法和请求路径，通过ControllerHelper#getHandler方法获取Handler对象。<br>
+3. 当拿到Handler对象以后，我们可以方便的获取Controller的类，进而通过BeanHelper.getBean方法获取Controller的实例对象。<br>
+4. 从HttpServletRequest对象中获取所有的请求参数，并将其初始化到一个名为Param的参数对象中。<br>
