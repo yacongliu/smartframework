@@ -51,7 +51,7 @@ public final class ClassUtil {
     }
 
     /**
-     * 加载类 （默认将初始化类）
+     * 加载类 （默认将初始化类,即 将执行类中的静态代码）
      *
      * @param className
      * @return

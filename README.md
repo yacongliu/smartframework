@@ -45,3 +45,15 @@ annotation包中的注解释义：<br>
         2. 遍历Bean Map 分别取出Bean类与Bean 实例，进而通过反射获取类中的成员变量.
         3. 继续遍历这些成员变量，在循环中判断当前成员变量是否带有@Inject注解，若带有该注解，则从Bean Map 中根据Bean 类获取Bean 实例.
         4. 通过ReflectionUtil#setField方法修改当前成员变量的值.
+#<h4> 加载Controller？<br>
+处理逻辑：<br>
+1.通过ClassHelper，我们可以获取所有定义了Controller注解的类，可以通过反射获取该类中所有带有@Action注解的方法，获取@Action中请求表达式<br>
+2.进而通过表达式获取请求方法与请求路径，封装请求对象（Request），处理对象（Handler）,最后将Request与Handler建立一个映射关系，放入ActionMa怕，并提供一个可根据请求方法与请求路径获取处理对象的方法.<br>
+#<h4> ControllerHelper控制器助手类<br>
+1. ControllerHelper中封装了一个Action Map, 通过它来存放Request 与Handler 的映射关系，然后通过ClassUtil获取所有带有@Controller的类.<br>
+2. 遍历Controller类 从带有@Action的方法的注解中提取URL，最后初始化Request与Handler之间的映射关系.
+
+#<h3> 初始化框架<br>
+<strong>我们已经创建了ClassHelper、BeanHelper、IocHelper、ControllerHelp， 这四个Helper类需要通过一个入口程序来加载他们，实际上就是加载他们的静态代码块！<br>
+#<h4> HelperLoader 加载Helper助手类<br>
+使用HelperLoader中的init()加载Helper类。实际上，当我们第一次访问类时，就会记载static代码块，这里只是为了让加载更为集中，所以才构建了HelperLoader！<br>
