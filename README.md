@@ -65,3 +65,10 @@ annotation包中的注解释义：<br>
 5. 从Handler对象中获取Action方法的返回值:<br>
     1. 若返回值是View类型的视图对象，则返回jsp页面.<br>
     2. 若返回值是Data类型的视图对象，则返回Json数据.<br>
+
+StreamUtil: 流操作   CodecUtil: URL的编码 解码  JsonUtil:JSON 和 POJO 互相转换.  补充StringUtil#splitString 字符串分割<br>
+# <h4> DispatcherServlet 请求转发器<br>
+MVC的核心就是 DisPatcherServlet. 通过请求转发器来处理所有的请求，根据请求信息从ControllerHelper 中获取对应的Action方法，然后使用反射技术调用Action方法，同时需要具体的传入方法参数，最后拿到返回值进行判断返回值的类型，进行相应的处理！<br>
+# <h4> MVC框架总结<br>
+我们已经搭建了一个简单的MVC框架，定义了一系列的注解：通过@Controller定义Controller类；通过@Inject实现依赖注入；通过@Action定义Action方法。<br>
+通过一系列的Helper 类来初始化MVC框架；通过DispatcherServlet来处理所有的请求；根据请求方法与请求路径来调用具体的Action方法，判断Action方法的返回值，若为View类型，则跳转到JSP，若为Data类型，则返回JSON数据.<br>
